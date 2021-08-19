@@ -1,0 +1,14 @@
+@use './mixins' as *;
+@use './variable' as *;
+
+@mixin margin-sides{
+    margin: 0rem 1rem;
+
+    @include tablet{
+        margin: 0rem 1.5rem;
+    }
+
+    @include desktop{
+        margin: 0rem 11.25rem; //double check thissssssssssssssssssssssss
+    }
+}

@@ -1,0 +1,31 @@
+@use './variable' as *;
+
+/*screen breakpoints*/
+
+@mixin tablet {
+    @media (min-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $breakpoint-desktop) {
+        @content;
+    }
+}
+
+
+/*dividers*/
+
+@mixin divider{
+    border-top: 0.063rem solid $mercury;
+    width: 18rem;
+
+    @include tablet{
+        width: 45rem;
+    }
+
+    @include desktop{
+        width: 67.5rem;
+    }
+}
