@@ -145,6 +145,10 @@
     font-display: swap;
 }
 
+*, *::before, *::after{
+    font-family: 'AvenirNext LT Pro';
+}
+
 @mixin h1-hero-header{
     font-size: 3.75rem;
     line-height: 4.25rem;
