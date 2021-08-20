@@ -1,0 +1,51 @@
+@use '../../partials/mixins/variable' as *;
+@use '../../partials/mixins/mixins-paddings' as *;
+@use '../../partials/mixins/mixins' as *;
+@use '../../partials/mixins/typography' as *;
+
+.header{
+  display: flex;
+  flex-direction: column;
+  
+  @include margin-sides;
+  margin-bottom: 2rem;
+
+  
+
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    @include padding-top-between-content;
+
+    &-sub-wrapper{
+      display: flex;
+      align-items: center;
+      @include padding-top-between-content;
+    }
+  }
+
+  &__search{
+    // background-image: url('../../assets/Icons/Icon-search.svg');
+    padding-left: 1rem;
+    
+    left: 0;
+    @include form-field;
+    background-repeat: no-repeat;
+  }
+
+  &__button{
+    @include button;
+  }
+
+ 
+
+  
+  
+  
+  
+  &__avatar{
+    @include avatar;
+    margin-left: 1rem;
+  }
+}

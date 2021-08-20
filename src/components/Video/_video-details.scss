@@ -1,0 +1,22 @@
+@use '../../partials/mixins/mixins' as *;
+
+.video-details{
+    display: flex;
+    flex-direction: column;
+
+    &__channel-and-date{
+        display: flex;
+    }
+
+    &__views{
+        display: flex;
+    }
+
+    &__likes{
+        display: flex;
+    }
+
+    &__divider{
+        @include divider;
+    }
+}

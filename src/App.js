@@ -1,28 +1,41 @@
+import React from 'react';
 import './App.scss';
-import LogoImg from './assets/Logo/Logo-brainflix.svg'
-import Avatar from './assets/images/Mohan-muruge.jpg'
+import videos from './assets/Data/video-details.json';
+import Video from './components/Video/Video'
+import VideoDetails from './components/Video/VideoDetails';
+import Header from './components/Header/Header'
+import Comments from './components/Comments/Comments';
 
-function App() {
+
+class App extends React.Component{
+  state = {
+    videos,
+    selectedVideo: videos[0],
+  };
+
+ 
+
+  render(){
   return (
-    <header>
-      <div className= "header">
-        <img className= 'header__img' src= {LogoImg} alt="logo-img" />
-        <input className= "header__search-bar" type= "text" placeholder= "Search"/>
+    <>
+    <Header />
 
-        <div className= "header__upload-box">
-          <button className="header__button" type="submit">UPLOAD</button>
+    <main>
+      
+      <Video video={this.state.selectedVideo} />
 
-          <div className="header__img-box">
-              <img className="header__avatar" src= {Avatar} alt="mohan-img"/>
-          </div>
+      <VideoDetails video={this.state.selectedVideo} />
 
-        </div>
+      <Comments />
 
-      </div>
+      
 
-    </header>
+      
 
+    </main>
+    </>
   );
+  }
 }
 
 export default App;
