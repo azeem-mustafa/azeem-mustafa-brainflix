@@ -18,13 +18,13 @@ function dateDisplay(timeAndDay) {
   return (
     <section className='video-details'>
 
-      <h1 className='video__details-title'>{props.video.title}</h1>
+      <h1 className='video-details-title'>{props.video.title}</h1>
 
       <div className='video-details__channel-and-date'>
         <h2 className='video-details__channel'>{props.video.channel}</h2>
         <h2 className= 'video-details__date'>{dateDisplay(props.video.timestamp)}</h2>
       </div>
-
+      <div className= 'video-details__views-likes-block'>
       <div className='video-details__views'>
         <img src={ViewsImg} alt='views img' />
         <h4>{props.video.views}</h4>
@@ -33,6 +33,8 @@ function dateDisplay(timeAndDay) {
       <div className='video-details__likes'>
         <img src={LikesImg} alt='Likes Img' />
         <h4>{props.video.likes}</h4>
+      </div>
+
       </div>
 
       <hr className= 'video-details__divider divider'/>

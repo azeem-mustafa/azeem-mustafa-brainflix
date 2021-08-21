@@ -1,19 +1,55 @@
 @use '../../partials/mixins/mixins' as *;
+@use '../../partials/mixins/typography' as *;
+@use '../../partials/mixins/variable' as *;
+
+
 
 .video-details{
     display: flex;
     flex-direction: column;
 
+    &-title{
+        @include h1-hero-header;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+    }
+
     &__channel-and-date{
+        display: flex;
+        @include h1-header;
+        padding-bottom: 2rem;
+    }
+
+    &__channel{
+        padding-right: 0.5rem;
+    }
+
+    &__date{
+        color: $mercury;
+    }
+
+    &__views-likes-block{
         display: flex;
     }
 
     &__views{
         display: flex;
+        padding-right: 2rem;
+
+        img{
+            padding-right: 0.5rem;
+        }
+        
     }
 
     &__likes{
         display: flex;
+
+        img{
+            margin-right: 0.5rem;
+        }
     }
 
     &__divider{
