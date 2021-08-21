@@ -3,12 +3,18 @@
 @use '../../partials/mixins/mixins' as *;
 @use '../../partials/mixins/typography' as *;
 
+body{
+  margin: 0;
+  padding: 0;
+}
+
 .header{
   display: flex;
   flex-direction: column;
   height: 11rem;
+  @include padding-sides;
   
-  @include margin-sides;
+  
   margin-bottom: 2rem;
 
   &__img{

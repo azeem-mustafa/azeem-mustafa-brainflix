@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import videos from './assets/Data/video-details.json';
-
+import videoData from './assets/Data/videos.json';
 import Video from './components/Video/Video'
 import VideoDetails from './components/Video/VideoDetails';
 import Header from './components/Header/Header'
@@ -13,21 +13,23 @@ import NextVideo from './components/NextVideoSection/NextVideo';
 
 class App extends React.Component{
   state = {
-    videos,
+    videos: videoData,
     selectedVideo: videos[0],
+    mainVideos: videos[0],
   };
 
   updateSelectedVideo = (id) => {
-    let selectedVideo = this.state.videos.find((video) => video.id === id);
+    let updatedVideo = videoData.find((video) => video.id === id);
 
     this.setState({
-        selectedVideo: selectedVideo,
+        selectedVideo: updatedVideo,
     });
 };
 
  
 
   render(){
+    const fliteredVideos = this.state.videos.filter((video) => video.id !== this.state.selectedVideo.id );
   return (
     <>
     <Header />
@@ -40,10 +42,10 @@ class App extends React.Component{
 
       <Comments />
 
-      <ListedComments video={this.state.selectedVideo} />
+      <ListedComments video={this.state.mainVideos} />
 
-      <NextVideo clickHandler= {this.updateSelectedVideo} 
-      videos={this.state.videos} />
+      <NextVideo videos={fliteredVideos} selectedVideo= {this.updateSelectedVideo} 
+       />
 
       
 

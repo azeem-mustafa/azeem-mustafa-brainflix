@@ -1,30 +1,25 @@
 import React from 'react';
 import './_next-video.scss';
+import NextVideoItem from '../NextVideoItem/NextVideoItem';
 
 
-function NextVideo({ videos, clickHandler}) {
+
+function NextVideo({ videos, selectedVideo}) {
+    
 
     return(
         <section className= 'next-video'>
-           
 
-            {videos.map(video => {
-                return (
-                    <div onClick={() => {
-                        clickHandler(video.id);
-                    }} 
-                    key= {video.id} className= 'next-video__block'>
-                    <img className='next-video__image' src= {video.image} alt= {video.title}/>
-                    
-                    <p className= 'next-video__description'>{video.title}</p>
-                   
-                    </div>
-                )
-            })}
+            {videos.map((video) => (
+
+                <NextVideoItem key={video.id} video={video} selectedVideo={selectedVideo}/>
+            ))}
         
         </section>
     )
 }
+
+
 
 
 export default NextVideo;

@@ -2,16 +2,19 @@
 @use '../../partials/mixins/typography' as *;
 @use '../../partials/mixins/variable' as *;
 
+@use '../../partials/mixins/mixins-paddings' as *;
+
 
 
 .video-details{
     display: flex;
     flex-direction: column;
 
+    @include padding-sides;
+
     &-title{
         @include h1-hero-header;
-        margin-block-start: 0em;
-        margin-block-end: 0em;
+        @include margin-reset;
         padding-top: 2rem;
         padding-bottom: 1rem;
     }
@@ -24,14 +27,20 @@
 
     &__channel{
         padding-right: 0.5rem;
+        @include margin-reset;
     }
 
     &__date{
         color: $mercury;
+        @include margin-reset;
     }
 
     &__views-likes-block{
         display: flex;
+
+        h4{
+            @include margin-reset;
+        }
     }
 
     &__views{

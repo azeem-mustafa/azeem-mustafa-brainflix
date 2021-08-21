@@ -69,3 +69,8 @@
         background-color: $darkblue;
     }
 }
+
+@mixin margin-reset{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
