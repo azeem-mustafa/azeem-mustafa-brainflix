@@ -17,7 +17,13 @@ class App extends React.Component{
     selectedVideo: videos[0],
   };
 
-  
+  updateSelectedVideo = (id) => {
+    let selectedVideo = this.state.videos.find((video) => video.id === id);
+
+    this.setState({
+        selectedVideo: selectedVideo,
+    });
+};
 
  
 
@@ -36,7 +42,8 @@ class App extends React.Component{
 
       <ListedComments video={this.state.selectedVideo} />
 
-      <NextVideo video={this.state.selectedVideo} />
+      <NextVideo clickHandler= {this.updateSelectedVideo} 
+      videos={this.state.videos} />
 
       
 

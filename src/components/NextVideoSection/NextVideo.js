@@ -1,34 +1,22 @@
 import React from 'react';
-import video from '../../assets/Data/videos.json';
 import './_next-video.scss';
 
 
-class  NextVideo extends React.Component {
-    state = {
-        video,
-        nextVideo: video.map[0]
-        ,
-    };
+function NextVideo({ videos, clickHandler}) {
 
-    updateSelectedVideo = (id) => {
-        let nextVideo = this.state.video.find((videos) => videos.id === id);
-
-        this.setState({
-            nextVideo: nextVideo,
-        });
-    };
-
-    render() {
     return(
         <section className= 'next-video'>
            
 
-            {video.map(next => {
+            {videos.map(video => {
                 return (
-                    <div key= {next.id} className= 'next-video__block'>
-                    <img className='next-video__image' src= {next.image} alt= {next.title}/>
+                    <div onClick={() => {
+                        clickHandler(video.id);
+                    }} 
+                    key= {video.id} className= 'next-video__block'>
+                    <img className='next-video__image' src= {video.image} alt= {video.title}/>
                     
-                    <p className= 'next-video__description'>{next.title}</p>
+                    <p className= 'next-video__description'>{video.title}</p>
                    
                     </div>
                 )
@@ -37,6 +25,6 @@ class  NextVideo extends React.Component {
         </section>
     )
 }
-}
+
 
 export default NextVideo;
