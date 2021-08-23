@@ -1,18 +1,18 @@
 @use './mixins' as *;
 @use './variable' as *;
 
-@mixin padding-sides{
-    padding: 0rem 1rem;
+@mixin padding-sides {
+  padding: 0rem 1rem;
 
-    @include tablet{
-        padding: 0rem 1.5rem;
-    }
+  @include tablet {
+    padding: 0rem 1.5rem;
+  }
 
-    @include desktop{
-        padding: 0rem 11.25rem; //double check thissssssssssssssssssssssss
-    }
+  @include desktop {
+    padding: 0rem 11.25rem;
+  }
 }
 
-@mixin padding-top-between-content{
-    padding-top: 0.5rem;
+@mixin padding-top-between-content {
+  padding-top: 0.5rem;
 }

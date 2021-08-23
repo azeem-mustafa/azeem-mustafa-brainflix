@@ -1,57 +1,67 @@
-import React from 'react';
-import './App.scss';
-import videos from './assets/Data/video-details.json';
-import videoData from './assets/Data/videos.json';
-import Video from './components/Video/Video'
-import VideoDetails from './components/Video/VideoDetails';
-import Header from './components/Header/Header'
-import Comments from './components/Comments/Comments';
-import ListedComments from './components/Comments/ListedComments/ListedComments';
-import NextVideo from './components/NextVideoSection/NextVideo';
+import React from "react";
+import "./App.scss";
+import videos from "./assets/Data/video-details.json";
+import videoData from "./assets/Data/videos.json";
+import Video from "./components/Video/Video";
+import VideoDetails from "./components/Video/VideoDetails";
+import Header from "./components/Header/Header";
+import Comments from "./components/Comments/Comments";
+import ListedComments from "./components/Comments/ListedComments/ListedComments";
+import NextVideo from "./components/NextVideoSection/NextVideo";
 
-
-
-class App extends React.Component{
+class App extends React.Component {
   state = {
-    videos: videoData,
+    videoWithoutComments: videoData,
     selectedVideo: videos[0],
-    mainVideos: videos[0],
+    videosWithDetails: videos,
   };
 
   updateSelectedVideo = (id) => {
-    let updatedVideo = videoData.find((video) => video.id === id);
+    let updatedVideo = this.state.videosWithDetails.find(
+      (video) => video.id === id
+    );
 
     this.setState({
-        selectedVideo: updatedVideo,
+      selectedVideo: updatedVideo,
     });
-};
+  };
 
- 
+  render() {
+    const fliteredVideos = this.state.videoWithoutComments.filter(
+      (video) => video.id !== this.state.selectedVideo.id
+    );
 
-  render(){
-    const fliteredVideos = this.state.videos.filter((video) => video.id !== this.state.selectedVideo.id );
-  return (
-    <>
-    <Header />
+    return (
+      <>
+        <Header />
 
-    <main>
-      
-      <Video video={this.state.selectedVideo} />
+        <main>
+          
+          <Video video={this.state.selectedVideo} />
 
-      <VideoDetails video={this.state.selectedVideo} />
+          <div className="wrapper">
 
-      <Comments />
+            <section className="wrapper__comments">
 
-      <ListedComments video={this.state.mainVideos} />
+              <VideoDetails video={this.state.selectedVideo} />
 
-      <NextVideo videos={fliteredVideos} selectedVideo= {this.updateSelectedVideo} 
-       />
+              <Comments video={this.state.selectedVideo} />
 
-      
+              <ListedComments video={this.state.selectedVideo} />
 
-    </main>
-    </>
-  );
+            </section>
+
+            <section className="wrapper__videos">
+
+              <NextVideo
+                videos={fliteredVideos}
+                selectedVideo={this.updateSelectedVideo}
+              />
+            </section>
+          </div>
+        </main>
+      </>
+    );
   }
 }
 

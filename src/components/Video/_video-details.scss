@@ -1,67 +1,119 @@
 @use '../../partials/mixins/mixins' as *;
 @use '../../partials/mixins/typography' as *;
 @use '../../partials/mixins/variable' as *;
-
 @use '../../partials/mixins/mixins-paddings' as *;
 
+.video-details {
+  display: flex;
+  flex-direction: column;
 
+  @include padding-sides;
 
-.video-details{
+  @include desktop {
+   padding-right: 0;
+  }
+
+  &-title {
+    @include h1-hero-header;
+    @include margin-reset;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+
+    @include tablet {
+      padding-top: 3rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  &__info-and-likes-block {
+    @include tablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      padding-right: 2rem;
+    }
+  }
+
+  //block for channel and date
+
+  &__channel-and-date {
     display: flex;
-    flex-direction: column;
+    @include h2-subheader;
+    padding-bottom: 2rem;
 
-    @include padding-sides;
+    @include tablet {
+      padding: 0;
+    }
+  }
 
-    &-title{
-        @include h1-hero-header;
-        @include margin-reset;
-        padding-top: 2rem;
-        padding-bottom: 1rem;
+  &__channel {
+    padding-right: 0.5rem;
+    @include margin-reset;
+  }
+
+  &__date {
+    color: $mercury;
+    @include margin-reset;
+  }
+
+  //block for views and likes
+
+  &__views-likes-block {
+    display: flex;
+
+    h4 {
+      @include margin-reset;
+    }
+  }
+
+  &__views {
+    display: flex;
+    padding-right: 2rem;
+
+    @include tablet {
+      padding-right: 1.5rem;
     }
 
-    &__channel-and-date{
-        display: flex;
-        @include h1-header;
-        padding-bottom: 2rem;
+    img {
+      padding-right: 0.5rem;
+    }
+  }
+
+  &__likes {
+    display: flex;
+
+    img {
+      margin-right: 0.5rem;
+    }
+  }
+
+  //divider at the bottom
+
+  &__divider {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    @include divider;
+
+    @include desktop {
+    }
+  }
+
+  //this section is for the pulled comments from the api
+
+  p {
+    margin: 0;
+    margin-bottom: 2.5rem;
+
+    @include tablet {
+      padding-top: 1rem;
+      width: 65ch;
     }
 
-    &__channel{
-        padding-right: 0.5rem;
-        @include margin-reset;
+    @include desktop {
+      width: 80%;
     }
-
-    &__date{
-        color: $mercury;
-        @include margin-reset;
-    }
-
-    &__views-likes-block{
-        display: flex;
-
-        h4{
-            @include margin-reset;
-        }
-    }
-
-    &__views{
-        display: flex;
-        padding-right: 2rem;
-
-        img{
-            padding-right: 0.5rem;
-        }
-        
-    }
-
-    &__likes{
-        display: flex;
-
-        img{
-            margin-right: 0.5rem;
-        }
-    }
-
-    &__divider{
-        @include divider;
-    }
+  }
 }
