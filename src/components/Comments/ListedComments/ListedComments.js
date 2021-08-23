@@ -26,7 +26,7 @@ function ListedComments(props) {
 
               <div className="listed-comments__img-box">
 
-                <img className="listed-comments__placeholder" /*alt= "user"*/ />
+                <img className="listed-comments__placeholder" alt= "" />
 
               </div>
 
