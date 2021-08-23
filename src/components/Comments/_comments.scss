@@ -1,0 +1,107 @@
+@use '../../partials/mixins/variable' as *;
+@use '../../partials/mixins/mixins-paddings' as *;
+@use '../../partials/mixins/mixins' as *;
+@use '../../partials/mixins/typography' as *;
+
+.comments {
+  @include padding-sides;
+
+  @include desktop {
+    padding-right: 0;
+  }
+
+  //overall form
+
+  &__form-flex {
+    display: flex;
+    flex-grow: 2;
+
+    @include tablet {
+      align-items: center;
+    }
+  }
+  
+  &__text-and-label-block {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      padding-right: 1rem;
+      height: 6rem;
+
+      @include desktop {
+        width: 90%;
+      }
+    }
+  }
+
+  &__text-area {
+    padding-bottom: 1rem;
+    @include form-field;
+
+    @include tablet {
+      margin: 0;
+      height: 2rem;
+      padding: 0.5rem;
+    }
+  }
+
+  &__button-box {
+      padding-top: 1rem;
+    @include tablet {
+      display: flex;
+      flex-grow: 2;
+      align-items: center;
+    }
+  }
+
+  &__button {
+    @include h5-labels;
+    font-weight: 600;
+    @include button;
+
+    @include tablet {
+      width: 10rem;
+    }
+  }
+
+  //actual comment box
+
+  &__comment-box {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+
+    @include tablet {
+      flex-direction: row;
+      padding-right: 2.5rem;
+      width: 100%;
+    }
+  }
+
+  &__form-avatar {
+    margin-right: 1rem;
+    @include avatar;
+  }
+
+  &__form-label {
+    @include h5-labels;
+    font-weight: 600;
+    color: $mercury;
+    padding-bottom: 0.5rem;
+  }
+
+  //this display the number of comments listed based on how many are in the legnth
+
+  &__number {
+    font-weight: 600;
+    padding-bottom: 1rem;
+
+    @include tablet {
+      padding-top: 0.5rem;
+      padding-bottom: 1rem;
+    }
+  }
+}

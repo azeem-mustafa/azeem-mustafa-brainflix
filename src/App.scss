@@ -1,0 +1,13 @@
+@use './partials/mixins/typography' as *;
+@use './partials/mixins/mixins' as *;
+
+*, *::before, *::after{
+    font-family: 'AvenirNext LT Pro';
+}
+
+.wrapper{
+    @include desktop{
+        display: flex;
+        
+    }
+}
