@@ -1,11 +1,12 @@
 import '.././NextVideoSection/_next-video.scss';
+import {Link} from 'react-router-dom';
 
 //this section pulls the videos and data from the api for next video section
 
 function NextVideoItem({video, selectedVideo}){
     return(
-      
-        <div className= 'next-video__block' onClick={() => { selectedVideo(video.id);
+        
+        <Link to={`/videos/${video.id}`} className= 'next-video__block' onClick={() => { selectedVideo(video.id);
         }} 
         key= {video.id}>
             <div>
@@ -19,7 +20,7 @@ function NextVideoItem({video, selectedVideo}){
         
         </div>
        
-        </div>
+        </Link>
         
     );
 }

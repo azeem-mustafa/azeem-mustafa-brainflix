@@ -1,0 +1,20 @@
+@use '../../partials/mixins/mixins-paddings' as *;
+
+@use '../../partials/mixins/mixins' as *;
+
+@use '../../partials/mixins/variable' as *;
+
+.hero{
+    @include padding-sides;
+
+    &__title{
+        @include margin-reset;
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+    }
+
+    &__subtitle{
+        color: $mercury;
+    }
+
+}

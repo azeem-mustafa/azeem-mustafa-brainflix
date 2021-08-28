@@ -3,12 +3,13 @@ import LogoImg from "../../assets/Logo/Logo-brainflix.svg";
 import Avatar from "../../assets/images/Mohan-muruge.jpg";
 import ButtonImg from "../../assets/Icons/Icon-upload.svg";
 import "./_header.scss";
+import {Link} from 'react-router-dom';
 
 class Header extends Component {
   render() {
     return (
       <header className="header">
-        <a className= 'header__img-box' href= '../../index.js'> <img className="header__img" src={LogoImg} alt="logo-img" /></a>
+        <Link to= '/' className= 'header__img-box'> <img className="header__img" src={LogoImg} alt="logo-img" /></Link>
 
         <form className="header__form">
           <input
@@ -21,6 +22,7 @@ class Header extends Component {
           </input>
 
           <div className="header__form-sub-wrapper">
+            <Link className='header__button-link' to= '/upload'>
             <button className="header__button" type="submit">
               <img
                 className="header__button-img"
@@ -29,6 +31,7 @@ class Header extends Component {
               />{" "}
               UPLOAD
             </button>
+            </Link>
 
             <div className="header__img-box">
               <img className="header__avatar" src={Avatar} alt="mohan-img" />
