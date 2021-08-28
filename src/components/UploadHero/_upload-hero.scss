@@ -3,18 +3,60 @@
 @use '../../partials/mixins/mixins' as *;
 
 @use '../../partials/mixins/variable' as *;
+@use '../../partials/mixins/typography' as *;
 
 .hero{
     @include padding-sides;
+    display: flex;
+    flex-direction: column;
 
     &__title{
         @include margin-reset;
         padding-top: 1.5rem;
         padding-bottom: 2rem;
+
+        @include tablet{
+            @include h1-header;
+            padding-bottom: 1.5rem;
+        }
     }
 
     &__subtitle{
         color: $mercury;
+        @include margin-reset;
+        padding-bottom: 0.5rem;
+
+        @include tablet{
+            padding-top: 2rem;
+        }
     }
+
+    &__img-box{
+        border: $mercury 0.063rem solid;
+        border-radius: 0.25rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('../../assets/images/Upload-video-preview.jpg');
+        height: 9.563rem;
+
+        @include tablet{
+            height: 11.438rem;
+            width: 21.5rem;
+        }
+    }
+
+    &__divider{
+
+        display: none;
+
+        @include tablet{
+            display:unset;
+            display: flex;
+        @include divider;
+        }
+    }
+
+
+   
 
 }

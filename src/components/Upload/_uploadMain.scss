@@ -1,0 +1,12 @@
+@use '../../partials/mixins/variable' as *;
+@use '../../partials/mixins/mixins' as *;
+
+.upload__divider{
+    display: none;
+
+    @include tablet{
+        display: unset;
+        display: flex;
+    border: 0.063rem solid $mercury;
+    }
+}

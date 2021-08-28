@@ -1,12 +1,13 @@
-import UploadHero from "../UploadHero/UploadHero"
+import UploadHero from "../UploadHero/UploadHero";
+import UploadForm from "../UploadForm/UploadForm";
+import './_uploadMain.scss';
 
 function Upload (){
     return(
     <main>
+        <hr className="upload__divider divider" />
         <UploadHero />
-            <form className= 'form'>
-                
-            </form>
+        <UploadForm />
         
     </main>
     )

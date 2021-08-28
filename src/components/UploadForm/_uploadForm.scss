@@ -1,0 +1,78 @@
+@use '../../partials/mixins/mixins-paddings' as *;
+@use '../../partials/mixins/mixins' as *;
+@use '../../partials/mixins/variable' as *;
+
+.form{
+    @include padding-sides;
+    padding-top: 0.5rem;
+
+    @include tablet{
+        padding-top: 1rem;
+    }
+
+    &__flex-block{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label{
+        @include margin-reset;
+        color: $mercury;
+        padding-top: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__title-box{
+        @include form-field;
+    }
+
+    &__description-box{
+        @include form-field;
+        height: 8.938rem;
+       display: block;
+
+       @include tablet{
+           margin-bottom: 2rem;
+       }
+    }
+
+    &__button-flex{
+        display: flex;
+        flex-direction: column;
+        padding-top: 2rem;
+
+        @include tablet{
+            flex-direction: row-reverse;
+
+        }
+    }
+    &__button-publish{
+        @include button;
+        margin-bottom: 1.5rem;
+        
+        @include tablet{
+            width: 10rem;
+        }
+
+    }
+
+    &__button-cancel{
+        @include button;
+        background-color: $white;
+        color: $lightblue;
+
+        @include tablet{
+            width: 10rem;
+        }
+    }
+
+    &__divider{
+        display: none;
+
+        @include tablet{
+            display: unset;
+            display: flex;
+        @include divider;
+        }
+    }
+}
