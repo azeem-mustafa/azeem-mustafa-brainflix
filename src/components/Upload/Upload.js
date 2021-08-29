@@ -4,10 +4,16 @@ import './_uploadMain.scss';
 
 function Upload (){
     return(
-    <main>
-        <hr className="upload__divider divider" />
+    <main className= 'upload'>
+        <hr className="upload__divider" />
+        <h1 className= 'upload__title'>Upload Video</h1>
+
+
+        <div className= 'upload__flexbox'>
+            
         <UploadHero />
         <UploadForm />
+        </div>
         
     </main>
     )

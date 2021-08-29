@@ -10,17 +10,11 @@
     display: flex;
     flex-direction: column;
 
-    &__title{
-        @include margin-reset;
-        padding-top: 1.5rem;
-        padding-bottom: 2rem;
-
-        @include tablet{
-            @include h1-header;
-            padding-bottom: 1.5rem;
-        }
+    @include desktop{
+        padding-right: 1.5rem;
     }
 
+   
     &__subtitle{
         color: $mercury;
         @include margin-reset;
@@ -53,6 +47,12 @@
             display:unset;
             display: flex;
         @include divider;
+        }
+
+        @include desktop{
+            position: absolute;
+           width: calc(100% - 25%);
+            top: 11.7rem;
         }
     }
 

@@ -10,6 +10,13 @@
         padding-top: 1rem;
     }
 
+    @include desktop{
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 2;
+    }
+
     &__flex-block{
         display: flex;
         flex-direction: column;
@@ -34,6 +41,12 @@
        @include tablet{
            margin-bottom: 2rem;
        }
+
+       @include desktop{
+          padding-bottom: 0;
+           margin-bottom: 2.5rem;
+           height: 3.9rem;
+       }
     }
 
     &__button-flex{
@@ -44,6 +57,9 @@
         @include tablet{
             flex-direction: row-reverse;
 
+        }
+        @include desktop{
+            padding-top: 2.5rem;
         }
     }
     &__button-publish{
@@ -73,6 +89,13 @@
             display: unset;
             display: flex;
         @include divider;
+        }
+
+        @include desktop{
+            position: absolute;
+            width: calc(100% - 25%);
+            top: 29.5rem;
+            left: 11.5rem;
         }
     }
 }
