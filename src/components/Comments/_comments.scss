@@ -20,7 +20,7 @@
       align-items: center;
     }
   }
-  
+
   &__text-and-label-block {
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@
   }
 
   &__button-box {
-      padding-top: 1rem;
+    padding-top: 1rem;
     @include tablet {
       display: flex;
       flex-grow: 2;

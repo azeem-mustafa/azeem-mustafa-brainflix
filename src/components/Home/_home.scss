@@ -1,0 +1,23 @@
+@use '../../partials/mixins/mixins' as *;
+
+.wrapper {
+  @include desktop {
+    flex-grow: 2;
+    width: 100%;
+  }
+}
+
+.wrapper__comments {
+  @include desktop {
+    width: 55.75rem;
+  }
+}
+
+.wrapper__videos {
+  @include desktop {
+    margin-left: 0.1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+  }
+}

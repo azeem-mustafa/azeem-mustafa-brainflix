@@ -4,7 +4,6 @@ import ViewsImg from "../../assets/Icons/Icon-views.svg";
 import LikesImg from "../../assets/Icons/Icon-likes.svg";
 
 function VideoDetails(props) {
-
   /*format date*/
   function dateDisplay(timeAndDay) {
     const currentDate = new Date(timeAndDay);
@@ -17,34 +16,25 @@ function VideoDetails(props) {
 
   return (
     <section className="video-details">
-
       <h1 className="video-details-title">{props.video.title}</h1>
 
       <div className="video-details__info-and-likes-block">
-
         <div className="video-details__channel-and-date">
-
           <h2 className="video-details__channel"> By {props.video.channel}</h2>
           <h2 className="video-details__date">
             {dateDisplay(props.video.timestamp)}
           </h2>
-
         </div>
 
         <div className="video-details__views-likes-block">
-
           <div className="video-details__views">
-
             <img src={ViewsImg} alt="views img" />
             <h4>{props.video.views}</h4>
-
           </div>
 
           <div className="video-details__likes">
-
             <img src={LikesImg} alt="Likes Img" />
             <h4>{props.video.likes}</h4>
-            
           </div>
         </div>
       </div>

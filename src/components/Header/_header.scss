@@ -15,7 +15,6 @@ body {
   flex-direction: column;
   height: 10.5rem;
   @include padding-sides;
-  
 
   @include tablet {
     display: flex;
@@ -24,7 +23,7 @@ body {
     align-items: center;
   }
 
-  &__img-box{
+  &__img-box {
     color: inherit;
     cursor: none;
     text-decoration: none;
@@ -37,8 +36,6 @@ body {
   //logo
 
   &__img {
-
-
     @include tablet {
       padding-right: 8.5rem;
       height: 2rem;
@@ -64,7 +61,6 @@ body {
   &__form {
     display: flex;
     flex-direction: column;
-    
 
     @include tablet {
       flex-grow: 2;
@@ -104,21 +100,21 @@ body {
     }
   }
 
-  &__button-link{
+  &__button-link {
     color: inherit;
     cursor: none;
     text-decoration: none;
     width: 100%;
 
-    @include tablet{
-      height: 3rem
+    @include tablet {
+      height: 3rem;
     }
   }
   &__button {
     @include button;
     font-weight: 600;
 
-    @include tablet{
+    @include tablet {
       height: 3rem;
     }
   }

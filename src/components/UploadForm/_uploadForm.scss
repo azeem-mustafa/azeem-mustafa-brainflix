@@ -2,100 +2,98 @@
 @use '../../partials/mixins/mixins' as *;
 @use '../../partials/mixins/variable' as *;
 
-.form{
-    @include padding-sides;
-    padding-top: 0.5rem;
+.form {
+  @include padding-sides;
+  padding-top: 0.5rem;
 
-    @include tablet{
-        padding-top: 1rem;
+  @include tablet {
+    padding-top: 1rem;
+  }
+
+  @include desktop {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+  }
+
+  &__flex-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    @include margin-reset;
+    color: $mercury;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  &__title-box {
+    @include form-field;
+  }
+
+  &__description-box {
+    @include form-field;
+    height: 8.938rem;
+    display: block;
+
+    @include tablet {
+      margin-bottom: 2rem;
     }
 
-    @include desktop{
-        padding-left: 0;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 2;
+    @include desktop {
+      padding-bottom: 0;
+      margin-bottom: 2.5rem;
+      height: 3.9rem;
+    }
+  }
+
+  &__button-flex {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+
+    @include tablet {
+      flex-direction: row-reverse;
+    }
+    @include desktop {
+      padding-top: 2.5rem;
+    }
+  }
+  &__button-publish {
+    @include button;
+    margin-bottom: 1.5rem;
+
+    @include tablet {
+      width: 10rem;
+    }
+  }
+
+  &__button-cancel {
+    @include button;
+    background-color: $white;
+    color: $lightblue;
+
+    @include tablet {
+      width: 10rem;
+    }
+  }
+
+  &__divider {
+    display: none;
+
+    @include tablet {
+      display: unset;
+      display: flex;
+      @include divider;
     }
 
-    &__flex-block{
-        display: flex;
-        flex-direction: column;
+    @include desktop {
+      position: absolute;
+      width: calc(100% - 25%);
+      top: 29.5rem;
+      left: 11.5rem;
     }
-
-    &__label{
-        @include margin-reset;
-        color: $mercury;
-        padding-top: 1.5rem;
-        padding-bottom: 0.5rem;
-    }
-
-    &__title-box{
-        @include form-field;
-    }
-
-    &__description-box{
-        @include form-field;
-        height: 8.938rem;
-       display: block;
-
-       @include tablet{
-           margin-bottom: 2rem;
-       }
-
-       @include desktop{
-          padding-bottom: 0;
-           margin-bottom: 2.5rem;
-           height: 3.9rem;
-       }
-    }
-
-    &__button-flex{
-        display: flex;
-        flex-direction: column;
-        padding-top: 2rem;
-
-        @include tablet{
-            flex-direction: row-reverse;
-
-        }
-        @include desktop{
-            padding-top: 2.5rem;
-        }
-    }
-    &__button-publish{
-        @include button;
-        margin-bottom: 1.5rem;
-        
-        @include tablet{
-            width: 10rem;
-        }
-
-    }
-
-    &__button-cancel{
-        @include button;
-        background-color: $white;
-        color: $lightblue;
-
-        @include tablet{
-            width: 10rem;
-        }
-    }
-
-    &__divider{
-        display: none;
-
-        @include tablet{
-            display: unset;
-            display: flex;
-        @include divider;
-        }
-
-        @include desktop{
-            position: absolute;
-            width: calc(100% - 25%);
-            top: 29.5rem;
-            left: 11.5rem;
-        }
-    }
+  }
 }

@@ -9,23 +9,30 @@
   @include desktop {
     padding: 0;
     padding-left: 1rem;
-  
+
     display: flex;
     height: 95%;
     flex-direction: column;
     justify-content: space-between;
     border-left: $mercury 0.063rem solid;
+    padding-right: 11.25rem;
   }
 
   &__header {
     @include h3-subheader;
     color: $mercury;
+
+    @include desktop {
+      padding-top: 1.5rem;
+    }
   }
 
   &__image {
     width: 7.5rem;
     height: 4.375rem;
-    padding-right: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.3rem;
   }
 
   //this section is for the writing part of the block
