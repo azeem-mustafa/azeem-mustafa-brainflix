@@ -18,7 +18,6 @@ class Home extends React.Component {
     axios
       .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
       .then((response) => {
-        console.log(response.data);
 
         this.setState({
           selectedVideo: response.data,
@@ -32,7 +31,6 @@ class Home extends React.Component {
         `https://project-2-api.herokuapp.com/videos?api_key=105f6357-1dac-4475-9750-00701622824d`
       )
       .then((response) => {
-        console.log(response.data);
 
         this.setState({
           videoWithDetails: response.data,
