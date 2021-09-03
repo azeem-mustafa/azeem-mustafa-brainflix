@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const uniqid = require('uniqid'); 
 
+const videosFilePath = './Data/video-details.json';
 
 // Re-usable function to read our data file
 const readVideos = () => {
@@ -14,7 +15,7 @@ const readVideos = () => {
 // GET all notes endpoint
 router.get('/', (_req, res) => {
   try {
-    // const videos = readVidoes();
+    const videos = readVideos();
     return res.status(200).json(readVideos());
   } catch(err) {
     return res.status(500).json({ error: "File cannot be read." }) 
@@ -24,8 +25,8 @@ router.get('/', (_req, res) => {
 
 // for this endpoint to match, it needs to be '/notes/latest'
 router.get('/:id', (req, res) => {
-  const videos = readVidoes();
-  const grabVideo = videos.find((videos) => videos.id === req.params.id)
+  const videos = readVideos();
+  const grabVideo = videos.find((video) => video.id === req.params.id)
 
   if (!grabVideo){
     return res.status(500).send({error: "Cannot find video"})
@@ -54,14 +55,14 @@ router.post('/', (req, res) => {
   }
   console.log(newVideo);
 
-  // // Read current notes
-  // const videos = readVideos();
+  // Read current notes
+  const videos = readVideos();
 
-  // // Push my latest note into my notes
-  // videos.push(newVideo);
+  // Push my latest note into my notes
+  videos.push(newVideo);
 
-  // // Write my updated notes into file
-  // fs.writeFileSync(videosFilePath, JSON.stringify(videos));
+  // Write my updated notes into file
+  fs.writeFileSync(videosFilePath, JSON.stringify(videos));
 
 
   res.json(newVideo);

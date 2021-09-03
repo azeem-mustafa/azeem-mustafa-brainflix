@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { API_URL, API_KEY } from "../../Utils/API";
+import { API_URL } from "../../Utils/API";
 import Video from "../Video/Video";
 import VideoDetails from "../Video/VideoDetails";
 import Comments from "../Comments/Comments";
 import ListedComments from "../Comments/ListedComments/ListedComments";
 import NextVideo from "../NextVideoSection/NextVideo";
 import "./_home.scss";
+
 
 class Home extends React.Component {
   state = {
@@ -16,7 +17,7 @@ class Home extends React.Component {
 
   getSelectedVideo = (videoId) => {
     axios
-      .get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`)
+      .get(`${API_URL}videos/${videoId}`)
       .then((response) => {
 
         this.setState({
@@ -28,7 +29,7 @@ class Home extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `https://project-2-api.herokuapp.com/videos?api_key=105f6357-1dac-4475-9750-00701622824d`
+        `${API_URL}videos`
       )
       .then((response) => {
 
