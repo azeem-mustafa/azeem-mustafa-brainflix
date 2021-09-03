@@ -12,7 +12,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/upload" component={Upload} />
+          <Route path="/upload" render={props => <Upload {...props} />} />
           <Route path="/videos/:videoId" component={Home} />
         </Switch>
       </BrowserRouter>

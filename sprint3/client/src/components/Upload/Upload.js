@@ -2,7 +2,7 @@ import UploadHero from "../UploadHero/UploadHero";
 import UploadForm from "../UploadForm/UploadForm";
 import "./_uploadMain.scss";
 
-function Upload() {
+function Upload({history}) {
   return (
     <main className="upload">
       <hr className="upload__divider" />
@@ -10,7 +10,7 @@ function Upload() {
 
       <div className="upload__flexbox">
         <UploadHero />
-        <UploadForm />
+        <UploadForm history={history} />
       </div>
     </main>
   );
