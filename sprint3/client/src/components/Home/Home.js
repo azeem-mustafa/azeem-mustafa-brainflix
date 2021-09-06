@@ -8,7 +8,6 @@ import ListedComments from "../Comments/ListedComments/ListedComments";
 import NextVideo from "../NextVideoSection/NextVideo";
 import "./_home.scss";
 
-
 class Home extends React.Component {
   state = {
     selectedVideo: null,
@@ -16,31 +15,23 @@ class Home extends React.Component {
   };
 
   getSelectedVideo = (videoId) => {
-    axios
-      .get(`${API_URL}videos/${videoId}`)
-      .then((response) => {
-
-        this.setState({
-          selectedVideo: response.data,
-        });
+    axios.get(`${API_URL}videos/${videoId}`).then((response) => {
+      this.setState({
+        selectedVideo: response.data,
       });
+    });
   };
 
   componentDidMount() {
-    axios
-      .get(
-        `${API_URL}videos`
-      )
-      .then((response) => {
-
-        this.setState({
-          videoWithDetails: response.data,
-        });
-
-        const videoId = this.props.match.params.videoId || response.data[0].id;
-
-        this.getSelectedVideo(videoId);
+    axios.get(`${API_URL}videos`).then((response) => {
+      this.setState({
+        videoWithDetails: response.data,
       });
+
+      const videoId = this.props.match.params.videoId || response.data[0].id;
+
+      this.getSelectedVideo(videoId);
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -72,12 +63,10 @@ class Home extends React.Component {
           </section>
 
           <section className="wrapper__videos">
-            {this.state.selectedVideo && (
-              <NextVideo
-                videos={fliteredVideos}
-                selectedVideo={this.getSelectedVideo}
-              />
-            )}
+            <NextVideo
+              videos={fliteredVideos}
+              selectedVideo={this.getSelectedVideo}
+            />
           </section>
         </div>
       </main>

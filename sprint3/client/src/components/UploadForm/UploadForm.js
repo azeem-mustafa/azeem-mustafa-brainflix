@@ -1,11 +1,8 @@
 import "./_uploadForm.scss";
 import React, { Component } from "react";
-import Home from "../Home/Home";
-import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../../Utils/API";
-import {createRef} from "react";
-
+import { createRef } from "react";
 
 const formRef = createRef();
 
@@ -16,8 +13,6 @@ class UploadForm extends Component {
   };
 
   handleChange = (event) => {
-    let isValid = this.isFormValid();
-    console.log(isValid);
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -30,28 +25,22 @@ class UploadForm extends Component {
     const formDescription = formRef.current.user_description.value;
 
     if (this.isFormValid()) {
-      axios.post(`${API_URL}videos`, {
-        title: formTitle,
-        image: "http://localhost:8080/images/image2.jpeg",
-        channel: "New Channel",
-        description: formDescription,
-        views: "0",
-        likes: "0",
-        duration: "4:01",
-        video: "https://project-2-api.herokuapp.com/stream",
-        timestamp: Date.now(),
-        comments: []
-
-    }).then((response) =>{
-      console.log(response.data);
-      alert("Upload success");
-
-      this.props.history.push("/");
-    })
-      // alert("Upload success");
-
-      // this.props.history.push("/");
-
+      axios
+        .post(`${API_URL}videos`, {
+          title: formTitle,
+          image: "http://localhost:8080/images/image2.jpeg",
+          channel: "New Channel",
+          description: formDescription,
+          views: "0",
+          likes: "0",
+          duration: "4:01",
+          video: "https://project-2-api.herokuapp.com/stream",
+          timestamp: Date.now(),
+          comments: [],
+        })
+        .then((response) => {
+          this.props.history.push("/");
+        });
     } else {
       alert("Failed to upload");
     }
@@ -65,7 +54,6 @@ class UploadForm extends Component {
   };
 
   render() {
-    console.log(this.props.history);
     return (
       <form ref={formRef} className="form">
         <label className="form__title">
@@ -95,11 +83,13 @@ class UploadForm extends Component {
 
         <hr className="form__divider divider" />
         <div className="form__button-flex">
-          
-            <button onClick={this.handleSubmit} className="form__button-publish" type="button">
+          <button
+            onClick={this.handleSubmit}
+            className="form__button-publish"
+            type="button"
+          >
             PUBLISH
           </button>
-          
 
           <button className="form__button-cancel" type="submit">
             CANCEL
